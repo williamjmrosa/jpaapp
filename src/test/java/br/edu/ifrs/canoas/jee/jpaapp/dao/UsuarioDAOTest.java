@@ -1,14 +1,13 @@
 package br.edu.ifrs.canoas.jee.jpaapp.dao;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import br.edu.ifrs.canoas.jee.jpaapp.pojo.Usuario;
-import br.edu.ifrs.canoas.jee.jpaapp.util.EntityManagerUtil;
 
 public class UsuarioDAOTest {
 
@@ -63,11 +62,8 @@ public class UsuarioDAOTest {
 		assertThat(usuario.getId()).isNotNull();
 		assertThat(usuario.getEmail()).as("emailDeAtualizacao");
 		usuario.setEmail("agora_mudou_o_email");
-		System.out.println("Codigo Antes: "+usuario.getId());
 		usuarioDAO.atualiza(usuario);
-		System.out.println("Codigo: "+usuario.getId());
 		Usuario novoUsuarioRecuperadoDoBanco = usuarioDAO.busca(usuario.getId());
-		System.out.println("Agora:"+novoUsuarioRecuperadoDoBanco.getEmail());
 		assertThat(novoUsuarioRecuperadoDoBanco.getEmail()).isEqualTo("agora_mudou_o_email");
 	}
 

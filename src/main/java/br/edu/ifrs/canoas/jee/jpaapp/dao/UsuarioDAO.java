@@ -30,18 +30,22 @@ public class UsuarioDAO {
     	usuarioRecuperado.setEmail(usuario.getEmail());
     	
     	EntityManager em2 = EntityManagerUtil.getEM();
+    	em2.getTransaction().begin();
     	//Usuario novo = em.find(Usuario.class, usuario.getId());
     	em2.merge(usuarioRecuperado);
-    	Usuario novo = em2.find(Usuario.class, usuario.getId());
-    	System.out.println("Novo: "+novo.getEmail());
-    	novo = busca(novo.getId());
-    	System.out.println("Novo Busca: "+novo.getEmail());
+    	em2.getTransaction().commit();
     	em2.close();
     	
     	
     }
 
     public void remove(Long id) {
+    	em = EntityManagerUtil.getEM();
+    	em.getTransaction().begin();
+    	Usuario usuario = em.find(Usuario.class, id);
+    	em.remove(usuario);
+    	em.getTransaction().commit();
+    	em.close();
     }
 
     public Usuario busca(Long id) {
