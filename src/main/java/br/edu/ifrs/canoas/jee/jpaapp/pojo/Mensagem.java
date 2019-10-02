@@ -15,6 +15,9 @@ public class Mensagem implements Serializable {
 	@Id
 	private Long id;
 	private String texto;
+	@ManyToOne
+	@JoinColumn(name="USR_ID")
+	private Usuario usuario;
 	
 	private static final long serialVersionUID = 1L;
 

@@ -1,395 +1,4 @@
-/*C28*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
-INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
-COMMIT
-INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
-COMMIT
-INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
-COMMIT
-INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
-COMMIT
-INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
-COMMIT
-DISCONNECT
-/*C29*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
-INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
-COMMIT
-INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
-COMMIT
-INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
-COMMIT
-DELETE FROM USUARIO WHERE ID=5
-INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
-COMMIT
-INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
-COMMIT
-INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
-COMMIT
-DISCONNECT
-/*C30*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
-INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
-COMMIT
-INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
-COMMIT
-INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
-COMMIT
-DELETE FROM USUARIO WHERE ID=5
-INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
-COMMIT
-INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
-COMMIT
-INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
-COMMIT
-DISCONNECT
-/*C31*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
-INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
-COMMIT
-INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
-COMMIT
-INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
-COMMIT
-DELETE FROM USUARIO WHERE ID=5
-INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
-COMMIT
-INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
-COMMIT
-INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
-COMMIT
-DISCONNECT
-/*C32*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
-INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
-COMMIT
-INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
-COMMIT
-INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
-COMMIT
-DELETE FROM USUARIO WHERE ID=5
-INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
-COMMIT
-INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
-COMMIT
-INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
-COMMIT
-DISCONNECT
-/*C33*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
-INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
-COMMIT
-INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
-COMMIT
-INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
-COMMIT
-DELETE FROM USUARIO WHERE ID=5
-INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
-COMMIT
-INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
-COMMIT
-DELETE FROM USUARIO WHERE ID=6
-COMMIT
-INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
-COMMIT
-DISCONNECT
-/*C34*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
-INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
-COMMIT
-INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
-COMMIT
-INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
-COMMIT
-DELETE FROM USUARIO WHERE ID=5
-INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
-COMMIT
-INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
-COMMIT
-DELETE FROM USUARIO WHERE ID=6
-COMMIT
-INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
-COMMIT
-INSERT INTO USUARIO VALUES(8,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
-COMMIT
-INSERT INTO USUARIO VALUES(9,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
-COMMIT
-INSERT INTO USUARIO VALUES(10,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 11
-COMMIT
-INSERT INTO USUARIO VALUES(11,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 12
-COMMIT
-INSERT INTO USUARIO VALUES(12,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 13
-COMMIT
-INSERT INTO USUARIO VALUES(13,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 14
-COMMIT
-INSERT INTO USUARIO VALUES(14,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 15
-COMMIT
-INSERT INTO USUARIO VALUES(15,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 16
-COMMIT
-INSERT INTO USUARIO VALUES(16,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 17
-COMMIT
-INSERT INTO USUARIO VALUES(17,'busca@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 18
-COMMIT
-DISCONNECT
-/*C35*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
-INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
-COMMIT
-INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
-COMMIT
-INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
-COMMIT
-DELETE FROM USUARIO WHERE ID=5
-INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
-COMMIT
-INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
-COMMIT
-DELETE FROM USUARIO WHERE ID=6
-COMMIT
-INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
-COMMIT
-DISCONNECT
-/*C36*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Mensagem if exists
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO MENSAGEM VALUES(1,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-DISCONNECT
-/*C37*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Mensagem if exists
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO MENSAGEM VALUES(1,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO MENSAGEM VALUES(2,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
-DELETE FROM MENSAGEM WHERE ID=2
-INSERT INTO MENSAGEM VALUES(2,'Novo texto')
-COMMIT
-DISCONNECT
-/*C38*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Mensagem if exists
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO MENSAGEM VALUES(1,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO MENSAGEM VALUES(2,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
-DELETE FROM MENSAGEM WHERE ID=2
-INSERT INTO MENSAGEM VALUES(2,'Novo texto')
-COMMIT
-INSERT INTO MENSAGEM VALUES(3,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
-COMMIT
-DELETE FROM MENSAGEM WHERE ID=3
-COMMIT
-DISCONNECT
-/*C39*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Mensagem if exists
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO MENSAGEM VALUES(1,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO MENSAGEM VALUES(2,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
-INSERT INTO MENSAGEM VALUES(3,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
-COMMIT
-INSERT INTO MENSAGEM VALUES(4,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
-COMMIT
-INSERT INTO MENSAGEM VALUES(5,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
-COMMIT
-INSERT INTO MENSAGEM VALUES(6,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
-COMMIT
-DELETE FROM MENSAGEM WHERE ID=6
-INSERT INTO MENSAGEM VALUES(6,'Novo texto')
-COMMIT
-INSERT INTO MENSAGEM VALUES(7,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
-COMMIT
-DELETE FROM MENSAGEM WHERE ID=7
-COMMIT
-DISCONNECT
-/*C40*/SET SCHEMA PUBLIC
-\u000d\u000a    drop table Mensagem if exists
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-INSERT INTO MENSAGEM VALUES(1,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO MENSAGEM VALUES(2,'textoBusca')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
-INSERT INTO MENSAGEM VALUES(3,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
-COMMIT
-INSERT INTO MENSAGEM VALUES(4,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
-COMMIT
-INSERT INTO MENSAGEM VALUES(5,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
-COMMIT
-INSERT INTO MENSAGEM VALUES(6,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
-COMMIT
-DELETE FROM MENSAGEM WHERE ID=6
-INSERT INTO MENSAGEM VALUES(6,'Novo texto')
-COMMIT
-INSERT INTO MENSAGEM VALUES(7,'texto')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
-COMMIT
-DELETE FROM MENSAGEM WHERE ID=7
-COMMIT
-DISCONNECT
-/*C41*/SET SCHEMA PUBLIC
+/*C17*/SET SCHEMA PUBLIC
 \u000d\u000a    drop table Mensagem if exists
 \u000d\u000a    drop table Usuario if exists
 \u000d\u000a    drop sequence hibernate_sequence if exists
@@ -479,7 +88,45 @@ INSERT INTO USUARIO VALUES(24,'busca@usuario.com','Endereco do Usuario','Senha_D
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 25
 COMMIT
 DISCONNECT
-/*C42*/SET SCHEMA PUBLIC
+/*C18*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+INSERT INTO USUARIO VALUES(1,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USUARIO VALUES(6,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+INSERT INTO USUARIO VALUES(8,'email.do@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+INSERT INTO USUARIO VALUES(9,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+INSERT INTO USUARIO VALUES(10,'busca@usuario.com','Endereco do Usuario','Senha_Do_Usuario')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 11
+COMMIT
+DISCONNECT
+/*C19*/SET SCHEMA PUBLIC
 \u000d\u000a    drop table Mensagem if exists
 \u000d\u000a    drop table Usuario if exists
 \u000d\u000a    drop sequence hibernate_sequence if exists
@@ -512,4 +159,521 @@ COMMIT
 INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
 COMMIT
+DISCONNECT
+/*C20*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C21*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emaildeatualizacao','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emaildeexclusao','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C22*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emaildeatualizacao','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emaildeexclusao','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C23*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C24*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C25*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C26*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C27*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C28*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+INSERT INTO MENSAGEM VALUES(1,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO MENSAGEM VALUES(2,'textoBusca')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO MENSAGEM VALUES(3,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO MENSAGEM VALUES(4,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO MENSAGEM VALUES(5,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO MENSAGEM VALUES(6,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=6
+INSERT INTO MENSAGEM VALUES(6,'Novo texto')
+COMMIT
+INSERT INTO MENSAGEM VALUES(7,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=7
+COMMIT
+DISCONNECT
+/*C29*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+INSERT INTO MENSAGEM VALUES(1,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO MENSAGEM VALUES(2,'textoBusca')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO MENSAGEM VALUES(3,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO MENSAGEM VALUES(4,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO MENSAGEM VALUES(5,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO MENSAGEM VALUES(6,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=6
+INSERT INTO MENSAGEM VALUES(6,'Novo texto')
+COMMIT
+INSERT INTO MENSAGEM VALUES(7,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=7
+COMMIT
+DISCONNECT
+/*C30*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+INSERT INTO MENSAGEM VALUES(1,'textoBuscaID')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO MENSAGEM VALUES(2,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO MENSAGEM VALUES(3,'textoBusca')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO MENSAGEM VALUES(4,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO MENSAGEM VALUES(5,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO MENSAGEM VALUES(6,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+INSERT INTO MENSAGEM VALUES(7,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=7
+INSERT INTO MENSAGEM VALUES(7,'Novo texto')
+COMMIT
+INSERT INTO MENSAGEM VALUES(8,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=8
+COMMIT
+DISCONNECT
+/*C31*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+INSERT INTO MENSAGEM VALUES(1,'textoBuscaID')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO MENSAGEM VALUES(2,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO MENSAGEM VALUES(3,'textoBusca')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO MENSAGEM VALUES(4,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO MENSAGEM VALUES(5,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO MENSAGEM VALUES(6,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+INSERT INTO MENSAGEM VALUES(7,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=7
+INSERT INTO MENSAGEM VALUES(7,'Novo texto')
+COMMIT
+INSERT INTO MENSAGEM VALUES(8,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=8
+COMMIT
+DISCONNECT
+/*C32*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+INSERT INTO MENSAGEM VALUES(1,'textoBuscaID')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO MENSAGEM VALUES(2,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO MENSAGEM VALUES(3,'textoBusca')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO MENSAGEM VALUES(4,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO MENSAGEM VALUES(5,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO MENSAGEM VALUES(6,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+INSERT INTO MENSAGEM VALUES(7,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=7
+INSERT INTO MENSAGEM VALUES(7,'Novo texto')
+COMMIT
+INSERT INTO MENSAGEM VALUES(8,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=8
+COMMIT
+DISCONNECT
+/*C33*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C34*/SET SCHEMA PUBLIC
+\u000d\u000a    drop table Localidade if exists
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
+INSERT INTO MENSAGEM VALUES(1,'textoBuscaID')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO MENSAGEM VALUES(2,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO MENSAGEM VALUES(3,'textoBusca')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO MENSAGEM VALUES(4,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO MENSAGEM VALUES(5,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO MENSAGEM VALUES(6,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+INSERT INTO MENSAGEM VALUES(7,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=7
+INSERT INTO MENSAGEM VALUES(7,'Novo texto')
+COMMIT
+INSERT INTO MENSAGEM VALUES(8,'texto')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=8
+COMMIT
+DISCONNECT
+/*C36*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C37*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table Usuario \u000d\u000a       drop constraint FK3cp4a6lte2av08mqo74auw2c
+\u000d\u000a    drop table Localidade if exists
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha',NULL)
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C35*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C38*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C39*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table Usuario \u000d\u000a       drop constraint FK3cp4a6lte2av08mqo74auw2c
+\u000d\u000a    drop table Localidade if exists
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        USR_ID bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    alter table Mensagem \u000d\u000a       add constraint FK79bu4ftk5ownxmkv7lmc6e4ak \u000d\u000a       foreign key (USR_ID) \u000d\u000a       references Usuario
+\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
+INSERT INTO MENSAGEM VALUES(1,'textoBuscaID',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO MENSAGEM VALUES(2,'texto',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO MENSAGEM VALUES(3,'textoBusca',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO MENSAGEM VALUES(4,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO MENSAGEM VALUES(5,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO MENSAGEM VALUES(6,'texto',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+INSERT INTO MENSAGEM VALUES(7,'texto',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=7
+INSERT INTO MENSAGEM VALUES(7,'Novo texto',NULL)
+COMMIT
+INSERT INTO MENSAGEM VALUES(8,'texto',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DELETE FROM MENSAGEM WHERE ID=8
+COMMIT
+DISCONNECT
+/*C40*/SET SCHEMA PUBLIC
 DISCONNECT

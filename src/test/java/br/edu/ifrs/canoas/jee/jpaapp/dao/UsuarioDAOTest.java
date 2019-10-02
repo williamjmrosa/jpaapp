@@ -48,7 +48,7 @@ public class UsuarioDAOTest {
 		// Cria usuario
 		usuarioDAO.salva(new Usuario("email@do.usuario", "senha",
 				"endereco"));
-		Usuario usuarioDoBD = usuarioDAO.buscaPorEmail("email@do.usuario").get(0);
+		Usuario usuarioDoBD = usuarioDAO.buscaPorEmail("EMAIL@DO.USUARIO").get(0);
 		assertThat(usuarioDoBD.getEmail()).isEqualTo("email@do.usuario");
 		assertThat(usuarioDoBD.getId()).isNotNull();
 

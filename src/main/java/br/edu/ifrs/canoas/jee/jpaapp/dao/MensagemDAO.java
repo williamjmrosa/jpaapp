@@ -60,7 +60,7 @@ public class MensagemDAO {
 	
 	public List<Mensagem> buscaTexto(String texto){
 		em = EntityManagerUtil.getEM();
-		TypedQuery<Mensagem> query = em.createQuery("SELECT mens FROM Mensagem mens where mens.texto = :texto",Mensagem.class);
+		TypedQuery<Mensagem> query = em.createQuery("SELECT mens FROM Mensagem mens where lower(mens.texto) = lower(:texto)",Mensagem.class);
 			if(texto != null) {
 				query.setParameter("texto", texto);
 			}

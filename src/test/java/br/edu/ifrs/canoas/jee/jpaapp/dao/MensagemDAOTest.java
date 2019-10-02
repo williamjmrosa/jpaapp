@@ -30,8 +30,8 @@ public class MensagemDAOTest {
 
 	@Test
 	public void testAtualiza() {
-		Mensagem mensagem = new Mensagem("texto");
 		//Cria Mensagem
+		Mensagem mensagem = new Mensagem("texto");
 		mensagemDAO.salva(mensagem);
 		assertThat(mensagem.getId()).isNotNull();
 		//Atualiza Mensagem
@@ -65,9 +65,23 @@ public class MensagemDAOTest {
 		mensagemDAO.salva(m1);
 		mensagemDAO.salva(m2);
 		mensagemDAO.salva(m3);
+		//Busca Mensagem
 		List<Mensagem> mensagems = mensagemDAO.busca();
 		//Deve ter no mínimo 3 Mensagem no Banco
 		assertThat(mensagems).size().isGreaterThan(3);		
+	}
+	
+	@Test
+	public void testBusca() {
+		//Cria Mensagem
+		Mensagem m1 = new Mensagem("textoBuscaID");
+		mensagemDAO.salva(m1);
+		assertThat(m1.getId()).isNotNull();
+		//Busca Mensagem
+		Mensagem mensagemDoBD = mensagemDAO.busca(m1.getId());
+		//Confere o retorno
+		assertThat(mensagemDoBD.getTexto()).isEqualTo("textoBuscaID");
+		assertThat(mensagemDoBD.getId()).isNotNull();
 	}
 
 	@Test
@@ -75,7 +89,7 @@ public class MensagemDAOTest {
 		//Cria Mensagem
 		mensagemDAO.salva(new Mensagem("textoBusca"));
 		//Busca Mensagem
-		Mensagem mensagemDoBD = mensagemDAO.buscaTexto("textoBusca").get(0);
+		Mensagem mensagemDoBD = mensagemDAO.buscaTexto("TextoBusca").get(0);
 		//Confere o retorno
 		assertThat(mensagemDoBD.getTexto()).isEqualTo("textoBusca");
 		assertThat(mensagemDoBD.getId()).isNotNull();

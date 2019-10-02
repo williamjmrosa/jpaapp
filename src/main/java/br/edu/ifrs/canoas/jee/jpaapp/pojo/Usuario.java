@@ -1,11 +1,15 @@
 package br.edu.ifrs.canoas.jee.jpaapp.pojo;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  * Entity implementation class for Entity: Usuario
@@ -22,6 +26,11 @@ public class Usuario implements Serializable {
 	private String email;
 	private String senha;
 	private String endereco;
+	@OneToOne
+	@JoinColumn(name="LOC_ID")
+	private Localidade localidade;
+	@OneToMany (mappedBy = "usuario")
+	private Collection<Mensagem> mensagems;
 
 	public Usuario() {
 		// TODO Auto-generated constructor stub
@@ -66,6 +75,14 @@ public class Usuario implements Serializable {
 	
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+	
+	public Localidade getLocalidade() {
+		return localidade;
+	}
+	
+	public void setLocalidade(Localidade localidade) {
+		this.localidade = localidade;
 	}
 	
 	@Override

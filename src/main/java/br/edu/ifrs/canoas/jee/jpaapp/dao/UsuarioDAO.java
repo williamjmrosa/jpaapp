@@ -64,7 +64,7 @@ public class UsuarioDAO {
 
     public List<Usuario> buscaPorEmail(String email) {
     	em = EntityManagerUtil.getEM();
-    	TypedQuery<Usuario> query = em.createQuery("SELECT usr FROM Usuario usr where usr.email = :email", Usuario.class);
+    	TypedQuery<Usuario> query = em.createQuery("SELECT usr FROM Usuario usr where lower(usr.email) = lower(:email)", Usuario.class);
 			if(email != null) {
 				query.setParameter("email", email);
 			}
