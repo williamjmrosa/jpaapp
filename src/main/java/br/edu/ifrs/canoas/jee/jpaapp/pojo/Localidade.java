@@ -31,6 +31,13 @@ public class Localidade implements Serializable {
 		this.lon = lon;
 	}
 
+	public Localidade(Float lat, Float lon, Usuario usuario) {
+		super();
+		this.lat = lat;
+		this.lon = lon;
+		this.usuario = usuario;
+	}
+
 	public int getId() {
 		return id;
 	}

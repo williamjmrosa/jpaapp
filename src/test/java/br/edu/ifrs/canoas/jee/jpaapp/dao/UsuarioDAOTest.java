@@ -25,8 +25,12 @@ public class UsuarioDAOTest {
 	public void testSalvaNovoUsuario() {
 		// Cria usuario
 		Localidade localidade = new Localidade(25.44F, 12.22F); 
-		localidadeDAO.salva(localidade);
-		Usuario usuario = new Usuario("email.do@usuario.com", "senha123","endereco",localidade);
+		//localidadeDAO.salva(localidade);
+		Usuario usuario = new Usuario();//"email.do@usuario.com", "senha123","endereco",localidade);
+		usuario.setEmail("email.do@usuario.com");
+		usuario.setSenha("senha123");
+		usuario.setEndereco("endereco");
+		usuario.setLocalidade(localidade);
 		// salva no banco
 		usuarioDAO.salva(usuario);
 		// verifica se salvou
