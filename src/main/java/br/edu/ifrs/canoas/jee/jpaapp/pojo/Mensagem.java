@@ -44,5 +44,12 @@ public class Mensagem implements Serializable {
 		this.texto = texto;
 	}
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
 }

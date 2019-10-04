@@ -55,4 +55,12 @@ public class Localidade implements Serializable {
 		this.lon = lon;
 	}
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 }

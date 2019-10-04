@@ -45,8 +45,14 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 		this.endereco = endereco;
 	}
-
-
+	
+	public Usuario(String email, String senha, String endereco, Localidade localidade) {
+		super();
+		this.email = email;
+		this.senha = senha;
+		this.endereco = endereco;
+		this.localidade = localidade;
+	}
 
 	public Long getId() {
 		return id;
@@ -86,6 +92,30 @@ public class Usuario implements Serializable {
 	
 	public void setLocalidade(Localidade localidade) {
 		this.localidade = localidade;
+	}
+	
+	public Collection<Mensagem> getMensagems() {
+		return mensagems;
+	}
+	
+	public void setMensagems(Collection<Mensagem> mensagems) {
+		this.mensagems = mensagems;
+	}
+	
+	public Collection<Lista> getListasAssinadas() {
+		return listasAssinadas;
+	}
+	
+	public void setListasAssinadas(Collection<Lista> listasAssinadas) {
+		this.listasAssinadas = listasAssinadas;
+	}
+	
+	public void addListaAssunadas(Lista lista) {
+		listasAssinadas.add(lista);
+	}
+	
+	public void addMensagem(Mensagem msg){
+		mensagems.add(msg);
 	}
 	
 	@Override

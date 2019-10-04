@@ -57,6 +57,8 @@ public class Lista implements Serializable {
 		this.membros = membros;
 	}
 	
-	
+	public void addMembros(Usuario usuario) {
+		membros.add(usuario);
+	}
    
 }

@@ -7,24 +7,32 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.edu.ifrs.canoas.jee.jpaapp.pojo.Localidade;
 import br.edu.ifrs.canoas.jee.jpaapp.pojo.Usuario;
 
 public class UsuarioDAOTest {
 
 	UsuarioDAO usuarioDAO;
+	LocalidadeDAO localidadeDAO;
+	
 	@Before
 	public void setup() {
 		usuarioDAO = new UsuarioDAO();
+		localidadeDAO = new LocalidadeDAO();
 	}
 	
 	@Test
 	public void testSalvaNovoUsuario() {
 		// Cria usuario
-		Usuario usuario = new Usuario("email.do@usuario.com", "senha123","endereco");
+		Localidade localidade = new Localidade(25.44F, 12.22F); 
+		localidadeDAO.salva(localidade);
+		Usuario usuario = new Usuario("email.do@usuario.com", "senha123","endereco",localidade);
 		// salva no banco
 		usuarioDAO.salva(usuario);
 		// verifica se salvou
 		assertThat(usuario.getId()).isNotNull();
+		assertThat(usuario.getLocalidade().getId()).isNotNull();
+		
 
 	}
 
