@@ -2,35 +2,51 @@ package br.edu.ifrs.canoas.jee.jpaapp.dao;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import br.edu.ifrs.canoas.jee.jpaapp.pojo.Localidade;
+import br.edu.ifrs.canoas.jee.jpaapp.pojo.Mensagem;
 import br.edu.ifrs.canoas.jee.jpaapp.pojo.Usuario;
 
 public class UsuarioDAOTest {
 
 	UsuarioDAO usuarioDAO;
-	LocalidadeDAO localidadeDAO;
+	MensagemDAO mensagemDAO;
 	
 	@Before
 	public void setup() {
 		usuarioDAO = new UsuarioDAO();
-		localidadeDAO = new LocalidadeDAO();
+		mensagemDAO = new MensagemDAO();
 	}
 	
 	@Test
 	public void testSalvaNovoUsuario() {
 		// Cria usuario
 		Localidade localidade = new Localidade(25.44F, 12.22F); 
-		//localidadeDAO.salva(localidade);
+		List<Mensagem> mensagems = new ArrayList<Mensagem>();
+		Mensagem m1 = new Mensagem("texto1");
+		Mensagem m2 = new Mensagem("texto2");
+		Mensagem m3 = new Mensagem("texto3");
+		Mensagem m4 = new Mensagem("texto4");
+		mensagemDAO.salva(m1);
+		mensagemDAO.salva(m2);
+		mensagemDAO.salva(m3);
+		mensagemDAO.salva(m4);
+		mensagems.add(m1);
+		mensagems.add(m2);
+		mensagems.add(m3);
+		mensagems.add(m4);
 		Usuario usuario = new Usuario();//"email.do@usuario.com", "senha123","endereco",localidade);
 		usuario.setEmail("email.do@usuario.com");
 		usuario.setSenha("senha123");
 		usuario.setEndereco("endereco");
 		usuario.setLocalidade(localidade);
+		usuario.setMensagems(mensagems);
+		
 		// salva no banco
 		usuarioDAO.salva(usuario);
 		// verifica se salvou
