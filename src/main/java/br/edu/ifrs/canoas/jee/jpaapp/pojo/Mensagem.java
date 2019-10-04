@@ -15,7 +15,7 @@ public class Mensagem implements Serializable {
 	@Id
 	private Long id;
 	private String texto;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="USR_ID")
 	private Usuario usuario;
 	

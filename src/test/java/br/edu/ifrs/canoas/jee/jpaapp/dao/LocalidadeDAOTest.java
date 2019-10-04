@@ -26,6 +26,7 @@ public class LocalidadeDAOTest {
 		localidadeDAO.salva(localidade);
 		//Verifica se Salvo
 		assertThat(localidade.getId()).isNotNull();
+		assertThat(localidade.getLat()).isEqualTo(-12.235F);
 		
 	}
 

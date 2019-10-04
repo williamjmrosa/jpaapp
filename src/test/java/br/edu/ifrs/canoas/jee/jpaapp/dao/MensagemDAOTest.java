@@ -7,7 +7,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.edu.ifrs.canoas.jee.jpaapp.pojo.Localidade;
 import br.edu.ifrs.canoas.jee.jpaapp.pojo.Mensagem;
+import br.edu.ifrs.canoas.jee.jpaapp.pojo.Usuario;
 
 public class MensagemDAOTest {
 
@@ -22,16 +24,31 @@ public class MensagemDAOTest {
 	public void testSalva() {
 		//Cria usuario
 		Mensagem mensagem = new Mensagem("texto");
+		// Cria usuario
+		Localidade localidade = new Localidade(25.44F, 12.22F); 
+		Usuario usuario = new Usuario();//"email.do@usuario.com", "senha123","endereco",localidade);
+		usuario.setEmail("email.do@usuario.com");
+		usuario.setSenha("senha123");
+		usuario.setEndereco("endereco");
+		usuario.setLocalidade(localidade);
+		mensagem.setUsuario(usuario);
 		//Salva no banco
 		mensagemDAO.salva(mensagem);
 		//Verifica se salvou
 		assertThat(mensagem.getId()).isNotNull();
+		assertThat(localidade.getId()).isNotNull();
+		assertThat(usuario.getId()).isNotNull();
+		assertThat(mensagem.getUsuario().getId()).isNotNull();
+		assertThat(mensagem.getUsuario().getLocalidade().getId()).isNotNull();
 	}
 
 	@Test
 	public void testAtualiza() {
 		//Cria Mensagem
 		Mensagem mensagem = new Mensagem("texto");
+		Localidade localidade = new Localidade(25.44F, 12.22F); 
+		Usuario usuario = new Usuario("emaildo@usuario.com", "senha123","endereco",localidade);
+		mensagem.setUsuario(usuario);
 		mensagemDAO.salva(mensagem);
 		assertThat(mensagem.getId()).isNotNull();
 		//Atualiza Mensagem
