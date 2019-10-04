@@ -3,6 +3,7 @@ package br.edu.ifrs.canoas.jee.jpaapp.pojo;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,7 +28,7 @@ public class Usuario implements Serializable {
 	private String email;
 	private String senha;
 	private String endereco;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)	
 	@JoinColumn(name="LOC_ID")
 	private Localidade localidade;
 	@OneToMany (mappedBy = "usuario")

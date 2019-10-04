@@ -554,3 +554,352 @@ COMMIT
 DELETE FROM USUARIO WHERE ID=6
 COMMIT
 DISCONNECT
+/*C34*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table Mensagem \u000d\u000a       drop constraint FK79bu4ftk5ownxmkv7lmc6e4ak
+\u000d\u000a    alter table Usuario \u000d\u000a       drop constraint FK3cp4a6lte2av08mqo74auw2c
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FK365kmf402gk70lxr5s881kblm
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FKg6573u11as7fbbtyy4e1kuc0e
+\u000d\u000a    drop table Lista if exists
+\u000d\u000a    drop table Localidade if exists
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop table Usuario_Lista if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Lista (\u000d\u000a       id integer not null,\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        USR_ID bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario_Lista (\u000d\u000a       membros_id bigint not null,\u000d\u000a        listasAssinadas_id integer not null\u000d\u000a    )
+\u000d\u000a    alter table Mensagem \u000d\u000a       add constraint FK79bu4ftk5ownxmkv7lmc6e4ak \u000d\u000a       foreign key (USR_ID) \u000d\u000a       references Usuario
+\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FK365kmf402gk70lxr5s881kblm \u000d\u000a       foreign key (listasAssinadas_id) \u000d\u000a       references Lista
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FKg6573u11as7fbbtyy4e1kuc0e \u000d\u000a       foreign key (membros_id) \u000d\u000a       references Usuario
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha',NULL)
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO LOCALIDADE VALUES(8,25.440000534057617E0,12.220000267028809E0)
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123',8)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DISCONNECT
+/*C35*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table Mensagem \u000d\u000a       drop constraint FK79bu4ftk5ownxmkv7lmc6e4ak
+\u000d\u000a    alter table Usuario \u000d\u000a       drop constraint FK3cp4a6lte2av08mqo74auw2c
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FK365kmf402gk70lxr5s881kblm
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FKg6573u11as7fbbtyy4e1kuc0e
+\u000d\u000a    drop table Lista if exists
+\u000d\u000a    drop table Localidade if exists
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop table Usuario_Lista if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Lista (\u000d\u000a       id integer not null,\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        USR_ID bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario_Lista (\u000d\u000a       membros_id bigint not null,\u000d\u000a        listasAssinadas_id integer not null\u000d\u000a    )
+\u000d\u000a    alter table Mensagem \u000d\u000a       add constraint FK79bu4ftk5ownxmkv7lmc6e4ak \u000d\u000a       foreign key (USR_ID) \u000d\u000a       references Usuario
+\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FK365kmf402gk70lxr5s881kblm \u000d\u000a       foreign key (listasAssinadas_id) \u000d\u000a       references Lista
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FKg6573u11as7fbbtyy4e1kuc0e \u000d\u000a       foreign key (membros_id) \u000d\u000a       references Usuario
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha',NULL)
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO LOCALIDADE VALUES(8,25.440000534057617E0,12.220000267028809E0)
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123',8)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DISCONNECT
+/*C36*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table Mensagem \u000d\u000a       drop constraint FK79bu4ftk5ownxmkv7lmc6e4ak
+\u000d\u000a    alter table Usuario \u000d\u000a       drop constraint FK3cp4a6lte2av08mqo74auw2c
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FK365kmf402gk70lxr5s881kblm
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FKg6573u11as7fbbtyy4e1kuc0e
+\u000d\u000a    drop table Lista if exists
+\u000d\u000a    drop table Localidade if exists
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop table Usuario_Lista if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Lista (\u000d\u000a       id integer not null,\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        USR_ID bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario_Lista (\u000d\u000a       membros_id bigint not null,\u000d\u000a        listasAssinadas_id integer not null\u000d\u000a    )
+\u000d\u000a    alter table Mensagem \u000d\u000a       add constraint FK79bu4ftk5ownxmkv7lmc6e4ak \u000d\u000a       foreign key (USR_ID) \u000d\u000a       references Usuario
+\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FK365kmf402gk70lxr5s881kblm \u000d\u000a       foreign key (listasAssinadas_id) \u000d\u000a       references Lista
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FKg6573u11as7fbbtyy4e1kuc0e \u000d\u000a       foreign key (membros_id) \u000d\u000a       references Usuario
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha',NULL)
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO LOCALIDADE VALUES(8,25.440000534057617E0,12.220000267028809E0)
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123',8)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DISCONNECT
+/*C37*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table Mensagem \u000d\u000a       drop constraint FK79bu4ftk5ownxmkv7lmc6e4ak
+\u000d\u000a    alter table Usuario \u000d\u000a       drop constraint FK3cp4a6lte2av08mqo74auw2c
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FK365kmf402gk70lxr5s881kblm
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FKg6573u11as7fbbtyy4e1kuc0e
+\u000d\u000a    drop table Lista if exists
+\u000d\u000a    drop table Localidade if exists
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop table Usuario_Lista if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Lista (\u000d\u000a       id integer not null,\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        USR_ID bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario_Lista (\u000d\u000a       membros_id bigint not null,\u000d\u000a        listasAssinadas_id integer not null\u000d\u000a    )
+\u000d\u000a    alter table Mensagem \u000d\u000a       add constraint FK79bu4ftk5ownxmkv7lmc6e4ak \u000d\u000a       foreign key (USR_ID) \u000d\u000a       references Usuario
+\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FK365kmf402gk70lxr5s881kblm \u000d\u000a       foreign key (listasAssinadas_id) \u000d\u000a       references Lista
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FKg6573u11as7fbbtyy4e1kuc0e \u000d\u000a       foreign key (membros_id) \u000d\u000a       references Usuario
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha',NULL)
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO LOCALIDADE VALUES(7,25.440000534057617E0,12.220000267028809E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+INSERT INTO USUARIO VALUES(8,'email.do@usuario.com','endereco','senha123',7)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DISCONNECT
+/*C39*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table Mensagem \u000d\u000a       drop constraint FK79bu4ftk5ownxmkv7lmc6e4ak
+\u000d\u000a    alter table Usuario \u000d\u000a       drop constraint FK3cp4a6lte2av08mqo74auw2c
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FK365kmf402gk70lxr5s881kblm
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FKg6573u11as7fbbtyy4e1kuc0e
+\u000d\u000a    drop table Lista if exists
+\u000d\u000a    drop table Localidade if exists
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop table Usuario_Lista if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Lista (\u000d\u000a       id integer not null,\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        USR_ID bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario_Lista (\u000d\u000a       membros_id bigint not null,\u000d\u000a        listasAssinadas_id integer not null\u000d\u000a    )
+\u000d\u000a    alter table Mensagem \u000d\u000a       add constraint FK79bu4ftk5ownxmkv7lmc6e4ak \u000d\u000a       foreign key (USR_ID) \u000d\u000a       references Usuario
+\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FK365kmf402gk70lxr5s881kblm \u000d\u000a       foreign key (listasAssinadas_id) \u000d\u000a       references Lista
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FKg6573u11as7fbbtyy4e1kuc0e \u000d\u000a       foreign key (membros_id) \u000d\u000a       references Usuario
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha',NULL)
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO LOCALIDADE VALUES(8,25.440000534057617E0,12.220000267028809E0)
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123',8)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DISCONNECT
+/*C6*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C38*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C40*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table Mensagem \u000d\u000a       drop constraint FK79bu4ftk5ownxmkv7lmc6e4ak
+\u000d\u000a    alter table Usuario \u000d\u000a       drop constraint FK3cp4a6lte2av08mqo74auw2c
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FK365kmf402gk70lxr5s881kblm
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FKg6573u11as7fbbtyy4e1kuc0e
+\u000d\u000a    drop table Lista if exists
+\u000d\u000a    drop table Localidade if exists
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop table Usuario_Lista if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Lista (\u000d\u000a       id integer not null,\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        USR_ID bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario_Lista (\u000d\u000a       membros_id bigint not null,\u000d\u000a        listasAssinadas_id integer not null\u000d\u000a    )
+\u000d\u000a    alter table Mensagem \u000d\u000a       add constraint FK79bu4ftk5ownxmkv7lmc6e4ak \u000d\u000a       foreign key (USR_ID) \u000d\u000a       references Usuario
+\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FK365kmf402gk70lxr5s881kblm \u000d\u000a       foreign key (listasAssinadas_id) \u000d\u000a       references Lista
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FKg6573u11as7fbbtyy4e1kuc0e \u000d\u000a       foreign key (membros_id) \u000d\u000a       references Usuario
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha',NULL)
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO LOCALIDADE VALUES(8,25.440000534057617E0,12.220000267028809E0)
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123',8)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DISCONNECT
+/*C41*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table Mensagem \u000d\u000a       drop constraint FK79bu4ftk5ownxmkv7lmc6e4ak
+\u000d\u000a    alter table Usuario \u000d\u000a       drop constraint FK3cp4a6lte2av08mqo74auw2c
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FK365kmf402gk70lxr5s881kblm
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FKg6573u11as7fbbtyy4e1kuc0e
+\u000d\u000a    drop table Lista if exists
+\u000d\u000a    drop table Localidade if exists
+\u000d\u000a    drop table Mensagem if exists
+\u000d\u000a    drop table Usuario if exists
+\u000d\u000a    drop table Usuario_Lista if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table Lista (\u000d\u000a       id integer not null,\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        USR_ID bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Usuario_Lista (\u000d\u000a       membros_id bigint not null,\u000d\u000a        listasAssinadas_id integer not null\u000d\u000a    )
+\u000d\u000a    alter table Mensagem \u000d\u000a       add constraint FK79bu4ftk5ownxmkv7lmc6e4ak \u000d\u000a       foreign key (USR_ID) \u000d\u000a       references Usuario
+\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FK365kmf402gk70lxr5s881kblm \u000d\u000a       foreign key (listasAssinadas_id) \u000d\u000a       references Lista
+\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FKg6573u11as7fbbtyy4e1kuc0e \u000d\u000a       foreign key (membros_id) \u000d\u000a       references Usuario
+INSERT INTO USUARIO VALUES(1,'email@do.usuario','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USUARIO VALUES(3,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USUARIO VALUES(4,'email','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USUARIO VALUES(5,'emailDeAtualizacao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+DELETE FROM USUARIO WHERE ID=5
+INSERT INTO USUARIO VALUES(5,'agora_mudou_o_email','endereco','senha',NULL)
+COMMIT
+INSERT INTO USUARIO VALUES(6,'emailDeExclusao','endereco','senha',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM USUARIO WHERE ID=6
+COMMIT
+INSERT INTO LOCALIDADE VALUES(8,25.440000534057617E0,12.220000267028809E0)
+INSERT INTO USUARIO VALUES(7,'email.do@usuario.com','endereco','senha123',8)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DISCONNECT
