@@ -33,7 +33,7 @@ public class Usuario implements Serializable {
 	private Localidade localidade;
 	@OneToMany (mappedBy = "usuario")
 	private Collection<Mensagem> mensagems;
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private Collection<Lista> listasAssinadas;
 
 	public Usuario() {

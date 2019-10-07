@@ -37,6 +37,7 @@ public class ListaDAOTest {
 		usuarios.add(u3);
 		Usuario usuario = new Usuario("email@mail.com","senha321","end");
 		Lista lista = new Lista("Participantes", usuarios);
+		listaDAO.salva(lista);
 		List<Lista> listas = new ArrayList<Lista>();
 		listas.add(lista);
 		usuarioDAO.salva(usuario);
