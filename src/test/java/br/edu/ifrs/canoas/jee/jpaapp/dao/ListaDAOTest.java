@@ -39,11 +39,12 @@ public class ListaDAOTest {
 		//usuarios.add(u2);
 		//usuarios.add(u3);
 		Lista lista = new Lista("Participantes");
-		lista.getMembros().add(u1);
+		Lista l1 = new Lista("Lista Participantes");
 		/*lista.getMembros().add(u2);
 		lista.getMembros().add(u3);*/
 		listaDAO.salva(lista);
-		
+		listaDAO.salva(l1);
+		usuario.getListasAssinadas().add(l1);
 		usuario.getListasAssinadas().add(lista);
 		usuarioDAO.atualiza(usuario);
 		//listaDAO.salva(lista);
