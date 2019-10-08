@@ -1,6 +1,7 @@
 package br.edu.ifrs.canoas.jee.jpaapp.pojo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.*;
@@ -25,6 +26,13 @@ public class Lista implements Serializable {
 	
 	public Lista() {
 		super();
+		membros = new ArrayList<Usuario>();
+	}
+	
+	public Lista(String nome) {
+		super();
+		this.nome = nome;
+		membros = new ArrayList<Usuario>();
 	}
 	
 	public Lista(String nome, Collection<Usuario> membros) {

@@ -24,15 +24,15 @@ public class UsuarioDAO {
     }
 
     public void atualiza(Usuario usuario) {
-    	em = EntityManagerUtil.getEM();
+    	/*em = EntityManagerUtil.getEM();
     	Usuario usuarioRecuperado = em.find(Usuario.class, usuario.getId());
     	em.close();
-    	usuarioRecuperado.setEmail(usuario.getEmail());
+    	usuarioRecuperado.setEmail(usuario.getEmail());*/
     	
     	EntityManager em2 = EntityManagerUtil.getEM();
     	em2.getTransaction().begin();
     	//Usuario novo = em.find(Usuario.class, usuario.getId());
-    	em2.merge(usuarioRecuperado);
+    	em2.merge(usuario);
     	em2.getTransaction().commit();
     	em2.close();
     	

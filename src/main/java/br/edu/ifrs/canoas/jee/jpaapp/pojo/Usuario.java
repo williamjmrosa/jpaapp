@@ -1,6 +1,7 @@
 package br.edu.ifrs.canoas.jee.jpaapp.pojo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
@@ -38,6 +39,7 @@ public class Usuario implements Serializable {
 
 	public Usuario() {
 		// TODO Auto-generated constructor stub
+		listasAssinadas = new ArrayList<Lista>();
 	}
 	
 	public Usuario(String email, String senha,String endereco) {
@@ -45,6 +47,7 @@ public class Usuario implements Serializable {
 		this.email = email;
 		this.senha = senha;
 		this.endereco = endereco;
+		listasAssinadas = new ArrayList<Lista>();
 	}
 	
 	public Usuario(String email, String senha, String endereco, Localidade localidade) {
@@ -53,6 +56,7 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 		this.endereco = endereco;
 		this.localidade = localidade;
+		listasAssinadas = new ArrayList<Lista>();
 	}
 
 	public Long getId() {

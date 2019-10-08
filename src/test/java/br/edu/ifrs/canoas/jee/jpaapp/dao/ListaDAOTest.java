@@ -25,23 +25,27 @@ public class ListaDAOTest {
 	@Test
 	public void testSalva() {
 		//Cria Lista
+		Usuario usuario = new Usuario("email@mail.com","senha321","end");
+		usuarioDAO.salva(usuario);
 		Usuario u1 = new Usuario();
-		Usuario u2 = new Usuario();
+		/*Usuario u2 = new Usuario();
 		Usuario u3 = new Usuario("email", "senha", "endereco");
 		usuarioDAO.salva(u1);
 		usuarioDAO.salva(u2);
-		usuarioDAO.salva(u3);
-		List<Usuario> usuarios = new ArrayList<Usuario>();
-		usuarios.add(u1);
-		usuarios.add(u2);
-		usuarios.add(u3);
-		Usuario usuario = new Usuario("email@mail.com","senha321","end");
-		Lista lista = new Lista("Participantes", usuarios);
+		usuarioDAO.salva(u3);*/
+		usuarioDAO.salva(u1);
+		//List<Usuario> usuarios = new ArrayList<Usuario>();
+		//usuarios.add(u1);
+		//usuarios.add(u2);
+		//usuarios.add(u3);
+		Lista lista = new Lista("Participantes");
+		lista.getMembros().add(u1);
+		/*lista.getMembros().add(u2);
+		lista.getMembros().add(u3);*/
 		listaDAO.salva(lista);
-		List<Lista> listas = new ArrayList<Lista>();
-		listas.add(lista);
-		usuarioDAO.salva(usuario);
 		
+		usuario.getListasAssinadas().add(lista);
+		usuarioDAO.atualiza(usuario);
 		//listaDAO.salva(lista);
 		
 	}
