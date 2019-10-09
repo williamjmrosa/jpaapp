@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,7 +35,7 @@ public class Usuario implements Serializable {
 	private Localidade localidade;
 	@OneToMany (mappedBy = "usuario")
 	private Collection<Mensagem> mensagems;
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
 	private Collection<Lista> listasAssinadas;
 
 	public Usuario() {
