@@ -1,98 +1,350 @@
-/*C12*/SET SCHEMA PUBLIC
-\u000d\u000a    alter table Mensagem \u000d\u000a       drop constraint FK79bu4ftk5ownxmkv7lmc6e4ak
-\u000d\u000a    alter table Usuario \u000d\u000a       drop constraint FK3cp4a6lte2av08mqo74auw2c
-\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FK365kmf402gk70lxr5s881kblm
-\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FKg6573u11as7fbbtyy4e1kuc0e
-\u000d\u000a    drop table Lista if exists
-\u000d\u000a    drop table Localidade if exists
-\u000d\u000a    drop table Mensagem if exists
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop table Usuario_Lista if exists
+/*C59*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table ItemPedido \u000d\u000a       drop constraint FKkv1xw4xg2vrq491ckdbxy2nyg
+\u000d\u000a    alter table ItemPedido \u000d\u000a       drop constraint FK33ox9pfv41dyanen77v40rrt2
+\u000d\u000a    drop table CarrinhoDeCompra if exists
+\u000d\u000a    drop table Cliente if exists
+\u000d\u000a    drop table FormaEnvio if exists
+\u000d\u000a    drop table FormaPagamento if exists
+\u000d\u000a    drop table ItemPedido if exists
+\u000d\u000a    drop table Pedido if exists
+\u000d\u000a    drop table Produto if exists
 \u000d\u000a    drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Lista (\u000d\u000a       id integer not null,\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        USR_ID bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Usuario_Lista (\u000d\u000a       membros_id bigint not null,\u000d\u000a        listasAssinadas_id integer not null\u000d\u000a    )
-\u000d\u000a    alter table Mensagem \u000d\u000a       add constraint FK79bu4ftk5ownxmkv7lmc6e4ak \u000d\u000a       foreign key (USR_ID) \u000d\u000a       references Usuario
-\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
-\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FK365kmf402gk70lxr5s881kblm \u000d\u000a       foreign key (listasAssinadas_id) \u000d\u000a       references Lista
-\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FKg6573u11as7fbbtyy4e1kuc0e \u000d\u000a       foreign key (membros_id) \u000d\u000a       references Usuario
-INSERT INTO USUARIO VALUES(1,'email@mail.com','end','senha321',NULL)
+\u000d\u000a    create table CarrinhoDeCompra (\u000d\u000a       id bigint not null,\u000d\u000a        statusCarrinho integer,\u000d\u000a        valorTotal double not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Cliente (\u000d\u000a       id bigint not null,\u000d\u000a        endereco varchar(255),\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table FormaEnvio (\u000d\u000a       id bigint not null,\u000d\u000a        nome varchar(255),\u000d\u000a        valorPorQuilo float not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table FormaPagamento (\u000d\u000a       id bigint not null,\u000d\u000a        descricao varchar(255),\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table ItemPedido (\u000d\u000a       id bigint not null,\u000d\u000a        quantidade integer,\u000d\u000a        total float,\u000d\u000a        id_carrinho bigint,\u000d\u000a        id_produto bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Pedido (\u000d\u000a       id bigint not null,\u000d\u000a        dataCriacao date,\u000d\u000a        dataEntrega date,\u000d\u000a        enderecoEntrega varchar(255),\u000d\u000a        status varchar(255),\u000d\u000a        id_forma bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Produto (\u000d\u000a       id bigint not null,\u000d\u000a        nome varchar(255),\u000d\u000a        preco float not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    alter table ItemPedido \u000d\u000a       add constraint FKkv1xw4xg2vrq491ckdbxy2nyg \u000d\u000a       foreign key (id_carrinho) \u000d\u000a       references CarrinhoDeCompra
+\u000d\u000a    alter table ItemPedido \u000d\u000a       add constraint FK33ox9pfv41dyanen77v40rrt2 \u000d\u000a       foreign key (id_produto) \u000d\u000a       references Produto
+\u000d\u000a    alter table Pedido \u000d\u000a       add constraint FK65r4tvgxi86nf784nvtxohixo \u000d\u000a       foreign key (id_forma) \u000d\u000a       references FormaEnvio
+INSERT INTO PRODUTO VALUES(1,'TV LG 49',1954.9000244140625E0)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USUARIO VALUES(2,NULL,NULL,NULL,NULL)
+INSERT INTO PRODUTO VALUES(2,'TV LG 50',1954.9000244140625E0)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO LISTA VALUES(3,'Participantes')
+INSERT INTO PRODUTO VALUES(3,NULL,0.0E0)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO LISTA VALUES(4,'Lista Participantes')
+INSERT INTO PRODUTO VALUES(4,NULL,0.0E0)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USUARIO_LISTA VALUES(1,4)
-INSERT INTO USUARIO_LISTA VALUES(1,3)
+INSERT INTO PRODUTO VALUES(5,'TV LG 40',1154.9000244140625E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
+DELETE FROM PRODUTO WHERE ID=5
+INSERT INTO PRODUTO VALUES(5,'SMART TV LG 40',1303.9000244140625E0)
+COMMIT
+INSERT INTO PRODUTO VALUES(6,'TV LG 49',1954.9000244140625E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM PRODUTO WHERE ID=6
+COMMIT
+/*C61*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C13*/SET SCHEMA PUBLIC
-\u000d\u000a    alter table Mensagem \u000d\u000a       drop constraint FK79bu4ftk5ownxmkv7lmc6e4ak
-\u000d\u000a    alter table Usuario \u000d\u000a       drop constraint FK3cp4a6lte2av08mqo74auw2c
-\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FK365kmf402gk70lxr5s881kblm
-\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FKg6573u11as7fbbtyy4e1kuc0e
-\u000d\u000a    drop table Lista if exists
-\u000d\u000a    drop table Localidade if exists
-\u000d\u000a    drop table Mensagem if exists
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop table Usuario_Lista if exists
+/*C62*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C64*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C60*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C63*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C59*/DISCONNECT
+/*C65*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C66*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table ItemPedido \u000d\u000a       drop constraint FKkv1xw4xg2vrq491ckdbxy2nyg
+\u000d\u000a    alter table ItemPedido \u000d\u000a       drop constraint FK33ox9pfv41dyanen77v40rrt2
+\u000d\u000a    alter table Pedido \u000d\u000a       drop constraint FK65r4tvgxi86nf784nvtxohixo
+\u000d\u000a    drop table CarrinhoDeCompra if exists
+\u000d\u000a    drop table Cliente if exists
+\u000d\u000a    drop table FormaEnvio if exists
+\u000d\u000a    drop table FormaPagamento if exists
+\u000d\u000a    drop table ItemPedido if exists
+\u000d\u000a    drop table Pedido if exists
+\u000d\u000a    drop table Produto if exists
 \u000d\u000a    drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Lista (\u000d\u000a       id integer not null,\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        USR_ID bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Usuario_Lista (\u000d\u000a       membros_id bigint not null,\u000d\u000a        listasAssinadas_id integer not null\u000d\u000a    )
-\u000d\u000a    alter table Mensagem \u000d\u000a       add constraint FK79bu4ftk5ownxmkv7lmc6e4ak \u000d\u000a       foreign key (USR_ID) \u000d\u000a       references Usuario
-\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
-\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FK365kmf402gk70lxr5s881kblm \u000d\u000a       foreign key (listasAssinadas_id) \u000d\u000a       references Lista
-\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FKg6573u11as7fbbtyy4e1kuc0e \u000d\u000a       foreign key (membros_id) \u000d\u000a       references Usuario
-INSERT INTO USUARIO VALUES(1,'email@mail.com','end','senha321',NULL)
+\u000d\u000a    create table CarrinhoDeCompra (\u000d\u000a       id bigint not null,\u000d\u000a        statusCarrinho integer,\u000d\u000a        valorTotal double not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Cliente (\u000d\u000a       id bigint not null,\u000d\u000a        endereco varchar(255),\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table FormaEnvio (\u000d\u000a       id bigint not null,\u000d\u000a        nome varchar(255),\u000d\u000a        valorPorQuilo float not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table FormaPagamento (\u000d\u000a       id bigint not null,\u000d\u000a        descricao varchar(255),\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table ItemPedido (\u000d\u000a       id bigint not null,\u000d\u000a        quantidade integer,\u000d\u000a        total float,\u000d\u000a        id_carrinho bigint,\u000d\u000a        id_produto bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Pedido (\u000d\u000a       id bigint not null,\u000d\u000a        dataCriacao date,\u000d\u000a        dataEntrega date,\u000d\u000a        enderecoEntrega varchar(255),\u000d\u000a        status varchar(255),\u000d\u000a        id_forma bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Produto (\u000d\u000a       id bigint not null,\u000d\u000a        nome varchar(255),\u000d\u000a        preco float not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    alter table ItemPedido \u000d\u000a       add constraint FKkv1xw4xg2vrq491ckdbxy2nyg \u000d\u000a       foreign key (id_carrinho) \u000d\u000a       references CarrinhoDeCompra
+\u000d\u000a    alter table ItemPedido \u000d\u000a       add constraint FK33ox9pfv41dyanen77v40rrt2 \u000d\u000a       foreign key (id_produto) \u000d\u000a       references Produto
+\u000d\u000a    alter table Pedido \u000d\u000a       add constraint FK65r4tvgxi86nf784nvtxohixo \u000d\u000a       foreign key (id_forma) \u000d\u000a       references FormaEnvio
+INSERT INTO CARRINHODECOMPRA VALUES(1,2,0.0E0)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO LISTA VALUES(2,'Participantes')
+INSERT INTO CARRINHODECOMPRA VALUES(2,0,0.0E0)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO LISTA VALUES(3,'Lista Participantes')
+INSERT INTO CARRINHODECOMPRA VALUES(3,1,0.0E0)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
+INSERT INTO CARRINHODECOMPRA VALUES(4,3,0.0E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO CARRINHODECOMPRA VALUES(5,3,0.0E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO CARRINHODECOMPRA VALUES(6,3,0.0E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DELETE FROM CARRINHODECOMPRA WHERE ID=6
+INSERT INTO CARRINHODECOMPRA VALUES(6,2,0.0E0)
+COMMIT
+INSERT INTO CARRINHODECOMPRA VALUES(7,3,0.0E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DELETE FROM CARRINHODECOMPRA WHERE ID=7
+COMMIT
+INSERT INTO FORMAENVIO VALUES(8,'SEDEX',1.7000000476837158E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+DELETE FROM FORMAENVIO WHERE ID=8
+COMMIT
+INSERT INTO FORMAENVIO VALUES(9,'SEDEX',2.0E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+DELETE FROM FORMAENVIO WHERE ID=9
+INSERT INTO FORMAENVIO VALUES(9,'PAC',3.0E0)
+COMMIT
+INSERT INTO FORMAENVIO VALUES(10,'SEDEX',1.7000000476837158E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 11
+COMMIT
+INSERT INTO FORMAENVIO VALUES(11,'SEDEX',1.7000000476837158E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 12
+COMMIT
+INSERT INTO FORMAENVIO VALUES(12,'PAC',2.0E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 13
+COMMIT
+INSERT INTO FORMAENVIO VALUES(13,'FRENET',1.899999976158142E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 14
+COMMIT
+INSERT INTO ITEMPEDIDO VALUES(14,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 15
+COMMIT
+INSERT INTO ITEMPEDIDO VALUES(15,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 16
+COMMIT
+INSERT INTO ITEMPEDIDO VALUES(16,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 17
+COMMIT
+INSERT INTO CARRINHODECOMPRA VALUES(17,1,0.0E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 18
+COMMIT
+INSERT INTO PRODUTO VALUES(18,'Smart TV Samsung 49',2243.340087890625E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 19
+COMMIT
+INSERT INTO PRODUTO VALUES(19,'Galaxy A10',750.3400268554688E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 20
+COMMIT
+INSERT INTO PRODUTO VALUES(20,'Galaxy A50',1750.3399658203125E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO ITEMPEDIDO VALUES(21,2,4486.68017578125E0,17,18)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 22
+COMMIT
+INSERT INTO ITEMPEDIDO VALUES(22,4,3001.360107421875E0,17,19)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 23
+COMMIT
+INSERT INTO ITEMPEDIDO VALUES(23,1,1750.3399658203125E0,17,20)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 24
+COMMIT
+INSERT INTO CARRINHODECOMPRA VALUES(24,1,0.0E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 25
+COMMIT
+INSERT INTO PRODUTO VALUES(25,'Galaxy A50',1750.3399658203125E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 26
+COMMIT
+INSERT INTO ITEMPEDIDO VALUES(26,2,3500.679931640625E0,24,25)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 27
+COMMIT
+DELETE FROM ITEMPEDIDO WHERE ID=26
+INSERT INTO ITEMPEDIDO VALUES(26,4,7001.35986328125E0,24,25)
+COMMIT
+INSERT INTO CARRINHODECOMPRA VALUES(27,1,0.0E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 28
+COMMIT
+INSERT INTO PRODUTO VALUES(28,'Galaxy A50',1850.3399658203125E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 29
+COMMIT
+INSERT INTO ITEMPEDIDO VALUES(29,2,3700.679931640625E0,27,28)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 30
+COMMIT
+DELETE FROM ITEMPEDIDO WHERE ID=29
+COMMIT
+INSERT INTO PRODUTO VALUES(30,'TV LG 50',1954.9000244140625E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO PRODUTO VALUES(31,'TV LG 49',1954.9000244140625E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 32
+COMMIT
+INSERT INTO PRODUTO VALUES(32,'TV LG 50',1954.9000244140625E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 33
+COMMIT
+INSERT INTO PRODUTO VALUES(33,NULL,0.0E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 34
+COMMIT
+INSERT INTO PRODUTO VALUES(34,NULL,0.0E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 35
+COMMIT
+INSERT INTO PRODUTO VALUES(35,'TV LG 40',1154.9000244140625E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 36
+COMMIT
+DELETE FROM PRODUTO WHERE ID=35
+INSERT INTO PRODUTO VALUES(35,'SMART TV LG 40',1303.9000244140625E0)
+COMMIT
+INSERT INTO PRODUTO VALUES(36,'TV LG 49',1954.9000244140625E0)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 37
+COMMIT
+DELETE FROM PRODUTO WHERE ID=36
+COMMIT
 DISCONNECT
-/*C14*/SET SCHEMA PUBLIC
-\u000d\u000a    alter table Mensagem \u000d\u000a       drop constraint FK79bu4ftk5ownxmkv7lmc6e4ak
-\u000d\u000a    alter table Usuario \u000d\u000a       drop constraint FK3cp4a6lte2av08mqo74auw2c
-\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FK365kmf402gk70lxr5s881kblm
-\u000d\u000a    alter table Usuario_Lista \u000d\u000a       drop constraint FKg6573u11as7fbbtyy4e1kuc0e
-\u000d\u000a    drop table Lista if exists
-\u000d\u000a    drop table Localidade if exists
-\u000d\u000a    drop table Mensagem if exists
-\u000d\u000a    drop table Usuario if exists
-\u000d\u000a    drop table Usuario_Lista if exists
+/*C70*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C69*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C71*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C68*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C67*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C72*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C73*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table ItemPedido \u000d\u000a       drop constraint FKkv1xw4xg2vrq491ckdbxy2nyg
+\u000d\u000a    alter table ItemPedido \u000d\u000a       drop constraint FK33ox9pfv41dyanen77v40rrt2
+\u000d\u000a    alter table Pedido \u000d\u000a       drop constraint FK65r4tvgxi86nf784nvtxohixo
+\u000d\u000a    drop table CarrinhoDeCompra if exists
+\u000d\u000a    drop table Cliente if exists
+\u000d\u000a    drop table FormaEnvio if exists
+\u000d\u000a    drop table FormaPagamento if exists
+\u000d\u000a    drop table ItemPedido if exists
+\u000d\u000a    drop table Pedido if exists
+\u000d\u000a    drop table Produto if exists
 \u000d\u000a    drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
-\u000d\u000a    create table Lista (\u000d\u000a       id integer not null,\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Localidade (\u000d\u000a       id integer not null,\u000d\u000a        lat float,\u000d\u000a        lon float,\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Mensagem (\u000d\u000a       id bigint not null,\u000d\u000a        texto varchar(255),\u000d\u000a        USR_ID bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Usuario (\u000d\u000a       id bigint not null,\u000d\u000a        email varchar(255),\u000d\u000a        endereco varchar(255),\u000d\u000a        senha varchar(255),\u000d\u000a        LOC_ID integer,\u000d\u000a        primary key (id)\u000d\u000a    )
-\u000d\u000a    create table Usuario_Lista (\u000d\u000a       membros_id bigint not null,\u000d\u000a        listasAssinadas_id integer not null\u000d\u000a    )
-\u000d\u000a    alter table Mensagem \u000d\u000a       add constraint FK79bu4ftk5ownxmkv7lmc6e4ak \u000d\u000a       foreign key (USR_ID) \u000d\u000a       references Usuario
-\u000d\u000a    alter table Usuario \u000d\u000a       add constraint FK3cp4a6lte2av08mqo74auw2c \u000d\u000a       foreign key (LOC_ID) \u000d\u000a       references Localidade
-\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FK365kmf402gk70lxr5s881kblm \u000d\u000a       foreign key (listasAssinadas_id) \u000d\u000a       references Lista
-\u000d\u000a    alter table Usuario_Lista \u000d\u000a       add constraint FKg6573u11as7fbbtyy4e1kuc0e \u000d\u000a       foreign key (membros_id) \u000d\u000a       references Usuario
-INSERT INTO LISTA VALUES(1,'Participantes')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
-COMMIT
-INSERT INTO LISTA VALUES(2,'Lista Participantes')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
-COMMIT
+\u000d\u000a    create table CarrinhoDeCompra (\u000d\u000a       id bigint not null,\u000d\u000a        statusCarrinho integer,\u000d\u000a        valorTotal double not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Cliente (\u000d\u000a       id bigint not null,\u000d\u000a        endereco varchar(255),\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table FormaEnvio (\u000d\u000a       id bigint not null,\u000d\u000a        nome varchar(255),\u000d\u000a        valorPorQuilo float not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table FormaPagamento (\u000d\u000a       id bigint not null,\u000d\u000a        descricao varchar(255),\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table ItemPedido (\u000d\u000a       id bigint not null,\u000d\u000a        quantidade integer,\u000d\u000a        total float,\u000d\u000a        id_carrinho bigint,\u000d\u000a        id_produto bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Pedido (\u000d\u000a       id bigint not null,\u000d\u000a        dataCriacao date,\u000d\u000a        dataEntrega date,\u000d\u000a        enderecoEntrega varchar(255),\u000d\u000a        status varchar(255),\u000d\u000a        id_forma bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Produto (\u000d\u000a       id bigint not null,\u000d\u000a        nome varchar(255),\u000d\u000a        preco float not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    alter table ItemPedido \u000d\u000a       add constraint FKkv1xw4xg2vrq491ckdbxy2nyg \u000d\u000a       foreign key (id_carrinho) \u000d\u000a       references CarrinhoDeCompra
+\u000d\u000a    alter table ItemPedido \u000d\u000a       add constraint FK33ox9pfv41dyanen77v40rrt2 \u000d\u000a       foreign key (id_produto) \u000d\u000a       references Produto
+\u000d\u000a    alter table Pedido \u000d\u000a       add constraint FK65r4tvgxi86nf784nvtxohixo \u000d\u000a       foreign key (id_forma) \u000d\u000a       references FormaEnvio
+/*C75*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C11*/SET SCHEMA PUBLIC
+/*C74*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C73*/DISCONNECT
+/*C76*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C77*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C78*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table ItemPedido \u000d\u000a       drop constraint FKkv1xw4xg2vrq491ckdbxy2nyg
+\u000d\u000a    alter table ItemPedido \u000d\u000a       drop constraint FK33ox9pfv41dyanen77v40rrt2
+\u000d\u000a    alter table Pedido \u000d\u000a       drop constraint FK65r4tvgxi86nf784nvtxohixo
+\u000d\u000a    drop table CarrinhoDeCompra if exists
+\u000d\u000a    drop table Cliente if exists
+\u000d\u000a    drop table FormaEnvio if exists
+\u000d\u000a    drop table FormaPagamento if exists
+\u000d\u000a    drop table ItemPedido if exists
+\u000d\u000a    drop table Pedido if exists
+\u000d\u000a    drop table Produto if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table CarrinhoDeCompra (\u000d\u000a       id bigint not null,\u000d\u000a        statusCarrinho integer,\u000d\u000a        valorTotal double not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Cliente (\u000d\u000a       id bigint not null,\u000d\u000a        endereco varchar(255),\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table FormaEnvio (\u000d\u000a       id bigint not null,\u000d\u000a        nome varchar(255),\u000d\u000a        valorPorQuilo float not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table FormaPagamento (\u000d\u000a       id bigint not null,\u000d\u000a        descricao varchar(255),\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table ItemPedido (\u000d\u000a       id bigint not null,\u000d\u000a        quantidade integer,\u000d\u000a        total float,\u000d\u000a        id_carrinho bigint,\u000d\u000a        id_produto bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Pedido (\u000d\u000a       id bigint not null,\u000d\u000a        dataCriacao date,\u000d\u000a        dataEntrega date,\u000d\u000a        enderecoEntrega varchar(255),\u000d\u000a        status varchar(255),\u000d\u000a        id_forma bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Produto (\u000d\u000a       id bigint not null,\u000d\u000a        nome varchar(255),\u000d\u000a        preco float not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    alter table ItemPedido \u000d\u000a       add constraint FKkv1xw4xg2vrq491ckdbxy2nyg \u000d\u000a       foreign key (id_carrinho) \u000d\u000a       references CarrinhoDeCompra
+\u000d\u000a    alter table ItemPedido \u000d\u000a       add constraint FK33ox9pfv41dyanen77v40rrt2 \u000d\u000a       foreign key (id_produto) \u000d\u000a       references Produto
+\u000d\u000a    alter table Pedido \u000d\u000a       add constraint FK65r4tvgxi86nf784nvtxohixo \u000d\u000a       foreign key (id_forma) \u000d\u000a       references FormaEnvio
+DISCONNECT
+/*C80*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C79*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C82*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C81*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C83*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table ItemPedido \u000d\u000a       drop constraint FKkv1xw4xg2vrq491ckdbxy2nyg
+\u000d\u000a    alter table ItemPedido \u000d\u000a       drop constraint FK33ox9pfv41dyanen77v40rrt2
+\u000d\u000a    alter table Pedido \u000d\u000a       drop constraint FK65r4tvgxi86nf784nvtxohixo
+\u000d\u000a    drop table CarrinhoDeCompra if exists
+\u000d\u000a    drop table Cliente if exists
+\u000d\u000a    drop table FormaEnvio if exists
+\u000d\u000a    drop table FormaPagamento if exists
+\u000d\u000a    drop table ItemPedido if exists
+\u000d\u000a    drop table Pedido if exists
+\u000d\u000a    drop table Produto if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table CarrinhoDeCompra (\u000d\u000a       id bigint not null,\u000d\u000a        statusCarrinho integer,\u000d\u000a        valorTotal double not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Cliente (\u000d\u000a       id bigint not null,\u000d\u000a        endereco varchar(255),\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table FormaEnvio (\u000d\u000a       id bigint not null,\u000d\u000a        nome varchar(255),\u000d\u000a        valorPorQuilo float not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table FormaPagamento (\u000d\u000a       id bigint not null,\u000d\u000a        descricao varchar(255),\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table ItemPedido (\u000d\u000a       id bigint not null,\u000d\u000a        quantidade integer,\u000d\u000a        total float,\u000d\u000a        id_carrinho bigint,\u000d\u000a        id_produto bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Pedido (\u000d\u000a       id bigint not null,\u000d\u000a        dataCriacao date,\u000d\u000a        dataEntrega date,\u000d\u000a        enderecoEntrega varchar(255),\u000d\u000a        status varchar(255),\u000d\u000a        id_forma bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Produto (\u000d\u000a       id bigint not null,\u000d\u000a        nome varchar(255),\u000d\u000a        preco float not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    alter table ItemPedido \u000d\u000a       add constraint FKkv1xw4xg2vrq491ckdbxy2nyg \u000d\u000a       foreign key (id_carrinho) \u000d\u000a       references CarrinhoDeCompra
+\u000d\u000a    alter table ItemPedido \u000d\u000a       add constraint FK33ox9pfv41dyanen77v40rrt2 \u000d\u000a       foreign key (id_produto) \u000d\u000a       references Produto
+\u000d\u000a    alter table Pedido \u000d\u000a       add constraint FK65r4tvgxi86nf784nvtxohixo \u000d\u000a       foreign key (id_forma) \u000d\u000a       references FormaEnvio
+DISCONNECT
+/*C84*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C86*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C87*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C85*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C88*/SET SCHEMA PUBLIC
+\u000d\u000a    alter table ItemPedido \u000d\u000a       drop constraint FKkv1xw4xg2vrq491ckdbxy2nyg
+\u000d\u000a    alter table ItemPedido \u000d\u000a       drop constraint FK33ox9pfv41dyanen77v40rrt2
+\u000d\u000a    alter table Pedido \u000d\u000a       drop constraint FK65r4tvgxi86nf784nvtxohixo
+\u000d\u000a    drop table CarrinhoDeCompra if exists
+\u000d\u000a    drop table Cliente if exists
+\u000d\u000a    drop table FormaEnvio if exists
+\u000d\u000a    drop table FormaPagamento if exists
+\u000d\u000a    drop table ItemPedido if exists
+\u000d\u000a    drop table Pedido if exists
+\u000d\u000a    drop table Produto if exists
+\u000d\u000a    drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+\u000d\u000a    create table CarrinhoDeCompra (\u000d\u000a       id bigint not null,\u000d\u000a        statusCarrinho integer,\u000d\u000a        valorTotal double not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Cliente (\u000d\u000a       id bigint not null,\u000d\u000a        endereco varchar(255),\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table FormaEnvio (\u000d\u000a       id bigint not null,\u000d\u000a        nome varchar(255),\u000d\u000a        valorPorQuilo float not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table FormaPagamento (\u000d\u000a       id bigint not null,\u000d\u000a        descricao varchar(255),\u000d\u000a        nome varchar(255),\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table ItemPedido (\u000d\u000a       id bigint not null,\u000d\u000a        quantidade integer,\u000d\u000a        total float,\u000d\u000a        id_carrinho bigint,\u000d\u000a        id_produto bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Pedido (\u000d\u000a       id bigint not null,\u000d\u000a        dataCriacao date,\u000d\u000a        dataEntrega date,\u000d\u000a        enderecoEntrega varchar(255),\u000d\u000a        status varchar(255),\u000d\u000a        id_forma bigint,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    create table Produto (\u000d\u000a       id bigint not null,\u000d\u000a        nome varchar(255),\u000d\u000a        preco float not null,\u000d\u000a        primary key (id)\u000d\u000a    )
+\u000d\u000a    alter table ItemPedido \u000d\u000a       add constraint FKkv1xw4xg2vrq491ckdbxy2nyg \u000d\u000a       foreign key (id_carrinho) \u000d\u000a       references CarrinhoDeCompra
+\u000d\u000a    alter table ItemPedido \u000d\u000a       add constraint FK33ox9pfv41dyanen77v40rrt2 \u000d\u000a       foreign key (id_produto) \u000d\u000a       references Produto
+\u000d\u000a    alter table Pedido \u000d\u000a       add constraint FK65r4tvgxi86nf784nvtxohixo \u000d\u000a       foreign key (id_forma) \u000d\u000a       references FormaEnvio
+DISCONNECT
+/*C89*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C91*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C92*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C90*/SET SCHEMA PUBLIC
 DISCONNECT
