@@ -1,1 +1,5 @@
 /target/
+/test.lck
+/test.log
+/test.properties
+/test.script
